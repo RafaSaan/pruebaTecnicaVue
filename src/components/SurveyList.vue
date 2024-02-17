@@ -1,9 +1,9 @@
 <template>
-  <div class="surveyList">
+  <div class="surveyListContainer">
     <div class="surveyHeader">
       <p>{{isOpenCreateOrUpdateSurvey ? 'Personaliza tus preguntas' : 'Preguntas'}}</p>
       <div class="surveyOptions">
-        <div class="actionButton" @click="isOpenCreateOrUpdateSurvey = false">
+        <div class="actionButton" v-if="store.survey.length && !isOpenCreateOrUpdateSurvey" @click="openCreateOrUpdate">
           <font-awesome-icon
               :icon="['fas', 'pen']"
               :style="{ color: '#fff' }"
@@ -13,9 +13,9 @@
       </div>
     </div>
 
-    <UpdateOrCreateSurvey v-if="isOpenCreateOrUpdateSurvey"/>
+    <UpdateOrCreateSurvey v-if="isOpenCreateOrUpdateSurvey" @cancel="cancelCreateOrUpdate"/>
     <div class="withoutTasksContainer" v-if="!isOpenCreateOrUpdateSurvey && !store.survey.length">
-      <div class="addQuestionBtn" @click="isOpenCreateOrUpdateSurvey = true">
+      <div class="addQuestionBtn" @click="openCreateOrUpdate">
         <font-awesome-icon
           :icon="['fas', 'plus']"
           :style="{ color: '#000' }" size="3x"/>
@@ -26,16 +26,29 @@
       </div>
     </div>
 
+    <div class="surveyList">
+      <div class="" v-for="question, index in store.survey" :key="index">
+        <span>{{ question.question }}</span>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import UpdateOrCreateSurvey from './UpdateOrCreateSurvey.vue';
-import { useSurveyStore } from '@/stores/survey'
+import { useSurveyStore } from '@/stores/survey';
 
 const store = useSurveyStore()
 const isOpenCreateOrUpdateSurvey = ref(false)
+
+function cancelCreateOrUpdate() {
+  isOpenCreateOrUpdateSurvey.value = false
+}
+function openCreateOrUpdate() {
+  isOpenCreateOrUpdateSurvey.value = true
+}
 </script>
 
 <style scoped>
@@ -48,12 +61,13 @@ const isOpenCreateOrUpdateSurvey = ref(false)
 .fade-leave-to {
   opacity: 0;
 }
-.surveyList {
+.surveyListContainer {
   background-color: #fff;
   padding: 1rem;
   border-radius: 1rem;
   margin-top: 3rem;
   min-height: 60vh;
+  max-height: 85vh;
 }
 .surveyHeader {
   display: flex;
