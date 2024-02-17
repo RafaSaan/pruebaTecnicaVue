@@ -125,9 +125,15 @@
 
 <script setup>
 import { useSurveyStore } from '@/stores/survey';
+import { onMounted  } from 'vue';
 
 const store = useSurveyStore()
 const emit = defineEmits(['cancel']);
+
+onMounted(() => {
+  store.setSurveyInfoToEdit()
+})
+
 function saveSurvey() {
   if (!store.customQuestions.length) return
   const hasErrors = store.validateCustomQuestions()

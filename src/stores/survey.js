@@ -21,6 +21,28 @@ export const useSurveyStore = defineStore('survey', () => {
     })
     return hasErrors
   }
+  const validateSurvey = () => {
+    survey.value.forEach((question) => {
+      if (!question.isRequired) return
+      question.errors = []
+      if (question.typeRating === 'open' && question.response === '') question.errors['open'] = { message: 'Es requerido contestar la pregunta' }
+      if (question.typeRating === 'range' && question.response === '') question.errors['range'] = { message: 'Es requerido seleccionar un rango' }
+      if (question.typeRating === 'closed' && question.response === '') question.errors['closed'] = { message: 'Es requerido seleccionar una opcion' }
+      if (question.typeRating === 'options' && question.response === '') question.errors['options'] = { message: 'Es requerido seleccionar una opcion' }
+    })
+  }
+
+  const setSurveyInfoToEdit = () => {
+    if (survey.value.length) {
+      survey.value.forEach((question) => {
+        question.response = ''
+      })
+      customQuestions.value = [...survey.value]
+      console.log(survey.value)
+      return
+    }
+    customQuestions.value = []
+  }
 
   return {
     survey,
@@ -36,7 +58,8 @@ export const useSurveyStore = defineStore('survey', () => {
         icon: '',
         range: 0,
         options: ['','','',''],
-        errors: []
+        errors: [],
+        response: ''
       }
       customQuestions.value.push(customQuestion)
     },
@@ -54,8 +77,10 @@ export const useSurveyStore = defineStore('survey', () => {
       return { message: '', hasError: false }
     },
     saveSurvey() {
-      survey.value = customQuestions.value
-    }
-
+      survey.value = [...customQuestions.value]
+      customQuestions.value = []
+    },
+    validateSurvey,
+    setSurveyInfoToEdit
   }
 })
