@@ -39,7 +39,7 @@ const navList = [
     iconColor: '#FB6340'
   },
   {
-    name: 'Preguntas Frecuentes',
+    name: 'Preguntas Personalizadas',
     icon: 'fa-solid fa-file-signature',
     route: '/survey',
     iconColor: '#2DCE89'

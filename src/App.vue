@@ -34,10 +34,7 @@ import MainNavbar from '@/components/MainNavbar.vue';
 .mainDisplay {
   z-index: 999;
   width: 100%;
-  background-color: #fff;
-  border-radius: 1rem;
-  margin: 1rem;
-  padding: 1rem;
   min-height: 90vh;
+  margin-right: 1rem;
 }
 </style>
