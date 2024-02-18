@@ -65,19 +65,19 @@
           <span class="errorMessage" v-if="store.error('typeRating', question.errors).hasError">{{ store.error('typeRating', question.errors).message }}</span>
         </div>
 
-        <div class="" v-if="question.typeRating === 'range'">
+        <div class="">
           <span class="ratingTitle">¿Que icono te gustaria?</span>
           <div class="typeRatingContainer">
             <div class="typeRating">
               <input type="radio" :id="'start'+index" value="star" v-model="question.icon"/>
               <label :for="'start'+index">
-                <font-awesome-icon :icon="['fas', 'star']" :style="{ color: '#000' }" size="lg"/>
+                <font-awesome-icon :icon="['fas', 'star']" :style="{ color: '#F7D345' }" size="lg"/>
               </label>
             </div>
             <div class="typeRating">
               <input type="radio" :id="'smile'+index" value="face-smile-beam" v-model="question.icon"/>
               <label :for="'smile'+index">
-                <font-awesome-icon :icon="['fas', 'face-smile-beam']" :style="{ color: '#000' }" size="lg"/>
+                <font-awesome-icon :icon="['fas', 'face-smile-beam']" :style="{ color: '#F7D345' }" size="lg"/>
               </label>
             </div>
           </div>

@@ -11,7 +11,7 @@ export const useSurveyStore = defineStore('survey', () => {
       question.errors = []
       if (question.question === '') question.errors['question'] = { message: 'Es requerido agregar una pregunta' }
       if (question.typeRating === '') question.errors['typeRating'] = { message: 'Es requerido agregar un tipo de calificacion' }
-      if (question.typeRating === 'range' && question.icon === '') question.errors['icon'] = { message: 'Es requerido seleccionar un icono' }
+      if (question.icon === '') question.errors['icon'] = { message: 'Es requerido seleccionar un icono' }
       if (question.typeRating === 'range' && question.range === 0) question.errors['range'] = { message: 'Es requerido seleccionar un rango' }
       if (question.typeRating === 'options' && (question.options[0] === '' || question.options[1] === '' || question.options[2] === '' || question.options[3] === '' ))
       { question.errors['options'] = { message: 'Es requerido completar las opciones' } }
