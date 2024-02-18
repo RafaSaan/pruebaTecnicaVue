@@ -16,5 +16,6 @@
   border-radius: 1rem;
   margin: 1rem;
   padding: 1rem;
+  color: #000;
 }
 </style>

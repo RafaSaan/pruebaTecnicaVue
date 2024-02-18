@@ -147,6 +147,7 @@ function openCreateOrUpdate() {
 .surveyHeader > p{
   font-size: 20px;
   font-weight: 600;
+  color: #000;
 }
 .surveyOptions {
   display: flex;
@@ -213,6 +214,7 @@ function openCreateOrUpdate() {
   display: flex;
   flex-direction: column;
   margin: 1.5rem 0;
+  color: #000;
 }
 .itemToSelect {
   background: #F6F8FA;

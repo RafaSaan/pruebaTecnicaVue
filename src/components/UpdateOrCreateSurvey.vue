@@ -187,6 +187,7 @@ function saveSurvey() {
 }
 .customQuestion {
   margin: 1.5rem 0;
+  color: #000;
 }
 .questionInput {
   background-color: #F6F8FA;
