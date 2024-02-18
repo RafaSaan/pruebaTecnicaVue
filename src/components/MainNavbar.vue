@@ -75,6 +75,7 @@ ul {
   border-radius: 1rem;
   z-index: 100;
   margin: 1rem;
+  transition: 0.5s;
 }
 .navItem {
   display: flex;
@@ -88,5 +89,29 @@ ul {
 }
 .itemIcon {
   margin: 10px;
+}
+
+@media (max-width: 1000px) {
+  .navHeader {
+    display: none;
+  }
+  .mainNavbar {
+    max-width: 100%;
+  }
+  .navItem {
+    margin: .5rem 0;
+    padding: .3rem;
+  }
+  ul {
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 450px) {
+  .navItem {
+    font-size: .7rem;
+    padding: 0;
+  }
 }
 </style>

@@ -109,7 +109,7 @@
 
         <div class="" v-if="question.typeRating === 'options'">
           <span class="ratingTitle">Opciones</span>
-          <div class="typeRatingContainer">
+          <div class="typeRatingContainer customOptionContainer">
             <input type="text" :id="'optionOne'+index" class="questionInput optionInput" placeholder="Opción 1" v-model="question.options[0]">
             <input type="text" :id="'optionTwo'+index" class="questionInput optionInput" placeholder="Opción 2" v-model="question.options[1]">
             <input type="text" :id="'optionThree'+index" class="questionInput optionInput" placeholder="Opción 3" v-model="question.options[2]">
@@ -242,7 +242,7 @@ function saveSurvey() {
 }
 .customOptionsContainer {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 .optionInput {
   width: 150px;
@@ -258,5 +258,35 @@ function saveSurvey() {
   margin: 0 1rem;
   margin-bottom: .6rem;
   border: .1px solid #e4e4e4;
+}
+
+@media (max-width: 1500px) {
+  .typeRatingContainer {
+    gap: 1rem;
+  }
+}
+@media (max-width: 1320px) {
+  .customOptionsContainer {
+    flex-direction: column;
+  }
+}
+@media (max-width: 700px) {
+  .customOptionContainer {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 600px) {
+  .headerUpdateOrCreate {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 500px) {
+  .questionInput {
+    width: 270px;
+  }
+  .optionInput {
+    width: 145px;
+  }
 }
 </style>

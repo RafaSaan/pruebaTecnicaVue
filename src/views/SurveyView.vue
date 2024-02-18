@@ -18,4 +18,9 @@ import SurveyList from '@/components/SurveyList.vue';
   margin-top: 1rem;
   color: #fff;
 }
+@media (max-width: 1000px) {
+  .viewTitle {
+    margin-top: 0;
+  }
+}
 </style>

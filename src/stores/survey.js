@@ -30,15 +30,16 @@ export const useSurveyStore = defineStore('survey', () => {
       if (question.typeRating === 'closed' && question.response === '') question.errors['closed'] = { message: 'Es requerido seleccionar una opcion' }
       if (question.typeRating === 'options' && question.response === '') question.errors['options'] = { message: 'Es requerido seleccionar una opcion' }
     })
+    console.log(survey.value)
   }
 
   const setSurveyInfoToEdit = () => {
     if (survey.value.length) {
       survey.value.forEach((question) => {
         question.response = ''
+        question.errors = []
       })
       customQuestions.value = [...survey.value]
-      console.log(survey.value)
       return
     }
     customQuestions.value = []

@@ -1,11 +1,12 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import MainNavbar from '@/components/MainNavbar.vue';
+
 </script>
 
 <template>
   <div class="styleBackground"></div>
-  <MainNavbar />
+  <MainNavbar/>
   <div class="mainDisplay">
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
@@ -36,5 +37,11 @@ import MainNavbar from '@/components/MainNavbar.vue';
   width: 100%;
   min-height: 90vh;
   margin-right: 1rem;
+}
+@media (max-width: 1000px) {
+  .mainDisplay {
+    margin: 0;
+    padding: .5rem;
+  }
 }
 </style>

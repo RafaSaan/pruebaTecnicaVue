@@ -8,7 +8,7 @@
 </template>
 <style scoped>
 .homeView {
-  height: 100%;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;

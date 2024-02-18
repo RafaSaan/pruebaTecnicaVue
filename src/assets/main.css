@@ -5,6 +5,13 @@
   font-weight: normal;
   display: flex;
   position: absolute;
+  flex-direction: row;
+}
+
+@media (max-width: 1000px) {
+  #app {
+    flex-direction: column;
+  }
 }
 
 a {
