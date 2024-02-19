@@ -1,14 +1,7 @@
 # prueba-tecnica-vue
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Prueba tecnica de Creación de Pantalla de Configuración de Encuesta
+para esta prueba se ocupo Vue 3, vue router, Pinia, FontAwesome, node v 20.10.0
 
 ## Project Setup
 
@@ -21,22 +14,11 @@ npm install
 ```sh
 npm run dev
 ```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### Docker execution
 
 ```sh
-npm run test:unit
+docker compose up
 ```
 
-### Lint with [ESLint](https://eslint.org/)
 
-```sh
-npm run lint
-```
 # pruebaTecnicaVue
