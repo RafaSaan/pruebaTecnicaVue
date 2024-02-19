@@ -137,6 +137,7 @@ const canSetQuestions = ref(false)
 
 onMounted(() => {
   store.setSurveyInfoToEdit()
+  // en el destroy se sebe quitar el commando
   document.addEventListener('keydown', keyListener);
 
 })
