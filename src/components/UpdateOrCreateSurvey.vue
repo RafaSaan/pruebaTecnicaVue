@@ -8,6 +8,10 @@
         <p>(Limite 5 preguntas)</p>
       </div>
       <div class="headerOptions">
+        <div class="actionButton setButton" v-if="canSetQuestions" @click="store.setCustomQuestions">
+          <font-awesome-icon :icon="['fas', 'floppy-disk']"/>
+          Set
+        </div>
         <div class="actionButton" @click="saveSurvey">
           <font-awesome-icon :icon="['fas', 'floppy-disk']"/>
           Guardar
@@ -125,14 +129,24 @@
 
 <script setup>
 import { useSurveyStore } from '@/stores/survey';
-import { onMounted  } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const store = useSurveyStore()
 const emit = defineEmits(['cancel']);
+const canSetQuestions = ref(false)
 
 onMounted(() => {
   store.setSurveyInfoToEdit()
+  document.addEventListener('keydown', keyListener);
+
 })
+
+function keyListener (e) {
+  if (e.key === 'a' && e.ctrlKey) {
+    e.preventDefault();
+    canSetQuestions.value = !canSetQuestions.value
+  }
+}
 
 function saveSurvey() {
   if (!store.customQuestions.length) return
@@ -259,6 +273,9 @@ function saveSurvey() {
   margin: 0 1rem;
   margin-bottom: .6rem;
   border: .1px solid #e4e4e4;
+}
+.setButton {
+  background-color: rgb(120, 137, 232);
 }
 
 @media (max-width: 1500px) {
